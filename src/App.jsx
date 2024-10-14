@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "./compenents/Header"
 import "./index.css"
 import Feedbackitem from "./compenents/Feedbackitem";
@@ -9,6 +9,7 @@ import Footer from "./compenents/Footer";
 
 function App() {
 
+  const toast = useRef(null);
   useEffect(() => {
     const storedFeedback = localStorage.getItem("item");
     if (storedFeedback) {
@@ -25,7 +26,7 @@ function App() {
 
   // delete function 
   const handleDelete = (id) => {
-    setFeedBack ( feedback.filter((item) => (item.id!==id) )) // entha id match aagalayo antha id matum display pannnum 
+    setFeedBack ( feedback.filter((item) => (item.id!==id) )) // entha id match aagalayo antha id matum display pannnum
   }
 
   // add function
